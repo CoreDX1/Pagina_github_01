@@ -1,0 +1,387 @@
+/* Reset */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+/* body{
+    background-color: black;
+} */
+
+/* Grid */
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: "menu menu menu menu"
+                         "banner banner banner banner"
+                         "contendio contendio contendio contendio"
+                         "footer footer footer footer";
+}
+
+/* Menu */
+
+.header{
+    position: sticky;
+    top: 0;
+    background-color: rgba(24, 24, 24, 0.897);
+    grid-area: menu;
+    height: 70px;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .9s ease;
+}
+
+.header h2, 
+.header span{
+    color: white;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+
+.mostrar-menu,
+.esconder-menu{
+    color: white;
+    display: none;
+    font-size: 30px;
+}
+
+.mostrar-menu{
+    order: 1;
+}
+
+#check{
+    display: none;
+}
+
+.menu a:hover,
+.mostrar-menu:hover,
+.esconder-menu:hover{
+    color: rgb(209, 209, 209);
+}
+
+/* Banner */
+
+.banner{
+    grid-area: banner;
+    background-image: url("../images/shutterstock_272163653.webp");
+    background-color: rgb(61, 61, 61);
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h1,
+.banner .texto{
+    width: 700px;
+    padding: 10px;
+    margin-top: 5px;
+    color: white;
+}
+
+.banner h1{
+    font-size: 25px;
+}
+
+.banner .texto{
+    background-color: #0a4c3f96;
+}
+
+.banner .botones{
+    display: flex;
+}
+
+.banner .botones-1,
+.banner .botones-2,
+.banner .botones-3{
+    margin-top: 10px;
+    color: white;
+    background-color: #0303034d;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.botones-1{
+    border: 1px solid orangered;
+    border-radius: 4px;
+}
+
+.botones-2{
+    border: 1px solid rgb(108, 206, 121);
+    border-radius: 4px;
+}
+
+.botones-3{
+    border: 1px solid rgb(18, 141, 2);
+    border-radius: 4px;
+}
+
+.banner .botones-1:hover{
+    background-color: rgba(255, 68, 0, 0.219);
+}
+.banner .botones-2:hover{
+    background-color: rgba(108, 206, 121, 0.438);
+}
+.banner .botones-3:hover{
+    background-color: rgba(18, 141, 2, 0.438);
+}
+
+/* Contenido */
+
+.main{
+    grid-area: contendio;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    background-color: white;
+    margin: 80px auto;
+    width: 95%;
+}
+
+.main .comentarios-01 > p,
+.main .comentarios-01 > div > p{
+    margin-top: 15px;
+}
+
+.main .comentarios-01 > p{
+    font-size: 25px;
+}
+
+.main .comentarios-01 > div{
+    width: 90%;
+}
+
+.main .comentarios-01 > div > p{
+    background-color: #cae9e6;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    width: 100%;
+}
+
+
+.main .comentarios-02  div  p{
+    margin-top: 30px;
+
+}
+
+.main .comentarios-02  div .titulos{
+    font-size: 20px;
+}
+
+/* Footer */
+
+.footer{
+    grid-area: footer;
+    background-color: black;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p{
+    cursor: pointer;
+    display: inline;
+    color: white;
+}
+
+/* Responsive */
+
+@media only screen and (min-width:992px) and (max-width: 1200px) {
+
+
+    /* Header */
+
+    .mostrar-menu,
+    .esconder-menu{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.952);
+        height: 100vh;
+        width: 100%;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 100px 0;
+        z-index: 100;
+        transition: .8s;
+    }
+
+    .menu a{
+        display: block;
+        margin-top: 20px;
+    }
+    
+
+    .esconder-menu{
+        position: absolute;
+        color: white;
+        top: 40px;
+        right: 40px;
+    }
+
+    #check:checked ~ .menu{
+        right: 0;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width: 992px) {
+    body{
+        background-color: red;
+    }
+
+    .mostrar-menu,
+    .esconder-menu{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.952);
+        height: 100vh;
+        width: 100%;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 100px 0;
+        z-index: 100;
+        transition: .8s;
+    }
+
+    .menu a{
+        display: block;
+        margin-top: 20px;
+    }
+    
+
+    .esconder-menu{
+        position: absolute;
+        color: white;
+        top: 40px;
+        right: 40px;
+    }
+
+    #check:checked ~ .menu{
+        right: 0;
+    }
+    
+    /* Header */
+
+    .banner{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 115%;
+        width: 100%;
+
+    }
+}
+
+@media only screen and (min-width:0px) and (max-width:767px) {
+
+    body{
+        background-color: blue;
+    }
+
+    /* Header */
+
+    .mostrar-menu,
+    .esconder-menu{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.952);
+        height: 100vh;
+        width: 100%;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 100px 0;
+        z-index: 100;
+        transition: .8s;
+    }
+
+    .menu a{
+        display: block;
+        margin-top: 20px;
+    }
+    
+
+    .esconder-menu{
+        position: absolute;
+        color: white;
+        top: 40px;
+        right: 40px;
+    }
+
+    #check:checked ~ .menu{
+        right: 0;
+    } 
+
+    /* Banner */
+
+    .banner{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 100%;
+        width: 100%;
+        padding: 60px;
+    }
+
+    .banner h1,
+    .banner .texto{
+        font-size: 0.90em;
+        width: 80%;
+        padding: 10px;
+        margin-top: 5px;
+        color: white;
+    }
+
+    .banner img{
+        width: 20%;
+    }
+
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+}
